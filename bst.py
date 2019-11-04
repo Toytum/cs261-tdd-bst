@@ -6,6 +6,7 @@
 # Ethan Weikel
 
 class BinarySearchTree:
+    
 
     def __init__(self, val = None):
         self.left = None
@@ -14,36 +15,41 @@ class BinarySearchTree:
 
     def insert(self, child):
         if child.key <= self.key:
-            if self.left != None:
-                self.left.insert(child)
-            else:
+            if self.left == None:
                 self.left = child
-
+            else:
+                self.left.insert(child)
         elif child.key > self.key:
-            if self.right != None:
-                self.right.insert(child)
-            else:
+            if self.right == None:
                 self.right = child
-    
-    def delete(self, val):
-        if val == self.key:
-            return None
-        else:
-            return self
-
-    def search(self, val):
-        if val == self.key:
-            return self
-
-        elif val <= self.key:
-            if self.left != None:
-                self.left.search(val)
             else:
-                return None 
+                self.right.insert(child)
 
-        elif val > self.key:
-            if self.right != None:
-                self.right.search(val)
+    def search(self, target):
+        if target == self.key:
+            return self
+
+        elif target < self.key:
+            if self.left != None:
+                return self.left.search(target)
             else:
                 return None
+
+        elif target > self.key:
+            if self.right != None:
+                return self.right.search(target)
+            else:
+                return None
+
+        else:
+            return None
+        
+    def delete(self, target):
+        if self.search(target) == None:
+            return self
+        else:
+            if self.search(target) == target:
+                if self.right != None:
+                    self.right = self
+
     pass
