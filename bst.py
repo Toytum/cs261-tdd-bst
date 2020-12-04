@@ -85,15 +85,26 @@ class BinarySearchTree:
         results = []
         if order == 'pre':
             results.append(self.key)
-            if self.left != None:
-                self.left.keys(order)
-            elif self.right != None:
-                self.right.keys(order)
+            if self.left != None and self.right != None:
+                results.extend(self.left.keys(order))
+                results.extend(self.right.keys(order))                
             return results
-        # elif order == 'in':
-        #     if self.left != None:
-        #         self.left.keys(order)
-        #     elif self.right != None:
-        #         self.right.keys(order)
-        #     return results
-    pass
+
+        elif order == 'in':
+            if self.left != None and self.right != None:
+                results.extend(self.left.keys(order))
+            results.append(self.key)
+            if self.left != None and self.right != None:
+                results.extend(self.right.keys(order))
+            return results
+
+        elif order == 'post':
+            if self.left != None and self.right != None:
+                results.extend(self.left.keys(order))
+                results.extend(self.right.keys(order))
+            results.append(self.key)
+            return results
+            
+        elif self.is_leaf():
+            results.append(self.key)
+            return results

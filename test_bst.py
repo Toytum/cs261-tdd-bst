@@ -827,99 +827,99 @@ class TestBinarySearchTree(unittest.TestCase):
         bst = BinarySearchTree(10)
         self.assertEqual([10], bst.keys('pre'))
 
-    # def test_one_in_order(self):
-    #     """
-    #     The in-order traversal of a single-node tree is a list containing that
-    #     node's key.
-    #     """
-    #     bst = BinarySearchTree(5)
-    #     self.assertEqual([5], bst.keys('in'))
+    def test_one_in_order(self):
+        """
+        The in-order traversal of a single-node tree is a list containing that
+        node's key.
+        """
+        bst = BinarySearchTree(5)
+        self.assertEqual([5], bst.keys('in'))
 
-    # def test_one_post_order(self):
-    #     """
-    #     The post-order traversal of a single-node tree is a list containing that
-    #     node's key.
-    #     """
-    #     bst = BinarySearchTree(3)
-    #     self.assertEqual([3], bst.keys('post'))
+    def test_one_post_order(self):
+        """
+        The post-order traversal of a single-node tree is a list containing that
+        node's key.
+        """
+        bst = BinarySearchTree(3)
+        self.assertEqual([3], bst.keys('post'))
 
-    # def test_two_pre_order(self):
-    #     """
-    #     The pre-order traversal of a two-level tree is a list containing the keys
-    #     in 'pre-order'.
-    #       5
-    #      / \    => [5, 3, 7]
-    #     3   7
-    #     """
-    #     bst = BinarySearchTree(5)
-    #     bst.left = BinarySearchTree(3)
-    #     bst.right = BinarySearchTree(7)
-    #     self.assertEqual([5, 3, 7], bst.keys('pre'))
+    def test_two_pre_order(self):
+        """
+        The pre-order traversal of a two-level tree is a list containing the keys
+        in 'pre-order'.
+          5
+         / \    => [5, 3, 7]
+        3   7
+        """
+        bst = BinarySearchTree(5)
+        bst.left = BinarySearchTree(3)
+        bst.right = BinarySearchTree(7)
+        self.assertEqual([5, 3, 7], bst.keys('pre'))
 
-    # def test_two_in_order(self):
-    #     """
-    #     The in-order traversal of a two-level tree is a list containing the keys
-    #     in 'in-order'.
-    #       5
-    #      / \    => [3, 5, 7]
-    #     3   7
-    #     """
-    #     bst = BinarySearchTree(5)
-    #     bst.left = BinarySearchTree(3)
-    #     bst.right = BinarySearchTree(7)
-    #     self.assertEqual([3, 5, 7], bst.keys('in'))
+    def test_two_in_order(self):
+        """
+        The in-order traversal of a two-level tree is a list containing the keys
+        in 'in-order'.
+          5
+         / \    => [3, 5, 7]
+        3   7
+        """
+        bst = BinarySearchTree(5)
+        bst.left = BinarySearchTree(3)
+        bst.right = BinarySearchTree(7)
+        self.assertEqual([3, 5, 7], bst.keys('in'))
 
-    # def test_two_post_order(self):
-    #     """
-    #     The post-order traversal of a two-level tree is a list containing the keys
-    #     in 'post-order'.
-    #       5
-    #      / \    => [3, 7, 5]
-    #     3   7
-    #     """
-    #     bst = BinarySearchTree(5)
-    #     bst.left = BinarySearchTree(3)
-    #     bst.right = BinarySearchTree(7)
-    #     self.assertEqual([3, 7, 5], bst.keys('post'))
+    def test_two_post_order(self):
+        """
+        The post-order traversal of a two-level tree is a list containing the keys
+        in 'post-order'.
+          5
+         / \    => [3, 7, 5]
+        3   7
+        """
+        bst = BinarySearchTree(5)
+        bst.left = BinarySearchTree(3)
+        bst.right = BinarySearchTree(7)
+        self.assertEqual([3, 7, 5], bst.keys('post'))
 
-    # def test_three_pre_order(self):
-    #     """
-    #     The pre-order traversal of a three-level tree is a list containing the keys
-    #     in 'pre-order'.
-    #          10
-    #        /    \
-    #       5      15      => [10, 5, 2, 7, 15, 12, 17]
-    #      / \    /  \
-    #     2   7  12   17
-    #     """
-    #     bst = three_level_tree()
-    #     self.assertEqual([10, 5, 2, 7, 15, 12, 17], bst.keys('pre'))
+    def test_three_pre_order(self):
+        """
+        The pre-order traversal of a three-level tree is a list containing the keys
+        in 'pre-order'.
+             10
+           /    \
+          5      15      => [10, 5, 2, 7, 15, 12, 17]
+         / \    /  \
+        2   7  12   17
+        """
+        bst = three_level_tree()
+        self.assertEqual([10, 5, 2, 7, 15, 12, 17], bst.keys('pre'))
 
-    # def test_three_in_order(self):
-    #     """
-    #     The in-order traversal of a three-level tree is a list containing the keys
-    #     in 'in-order'.
-    #          10
-    #        /    \
-    #       5      15      => [2, 5, 7, 10, 12, 15, 17]
-    #      / \    /  \
-    #     2   7  12   17
-    #     """
-    #     bst = three_level_tree()
-    #     self.assertEqual([2, 5, 7, 10, 12, 15, 17], bst.keys('in'))
+    def test_three_in_order(self):
+        """
+        The in-order traversal of a three-level tree is a list containing the keys
+        in 'in-order'.
+             10
+           /    \
+          5      15      => [2, 5, 7, 10, 12, 15, 17]
+         / \    /  \
+        2   7  12   17
+        """
+        bst = three_level_tree()
+        self.assertEqual([2, 5, 7, 10, 12, 15, 17], bst.keys('in'))
 
-    # def test_three_post_order(self):
-    #     """
-    #     The post-order traversal of a three-level tree is a list containing the keys
-    #     in 'post-order'.
-    #          10
-    #        /    \
-    #       5      15      => [2, 7, 5, 12, 17, 15, 10]
-    #      / \    /  \
-    #     2   7  12   17
-    #     """
-    #     bst = three_level_tree()
-    #     self.assertEqual([2, 7, 5, 12, 17, 15, 10], bst.keys('post'))
+    def test_three_post_order(self):
+        """
+        The post-order traversal of a three-level tree is a list containing the keys
+        in 'post-order'.
+             10
+           /    \
+          5      15      => [2, 7, 5, 12, 17, 15, 10]
+         / \    /  \
+        2   7  12   17
+        """
+        bst = three_level_tree()
+        self.assertEqual([2, 7, 5, 12, 17, 15, 10], bst.keys('post'))
 
 
 def three_level_tree():
